@@ -1,0 +1,42 @@
+{
+    "sponser": {
+        "url_template": "https://finance.sponser.co.il/finance/table/?s={fund_id}",
+        "parser_type": "beautifulsoup",
+        "find_params": {
+            "tag": "span",
+            "attributes": {"class": "tag-quote", "id": "header-quote"}
+        },
+        "content_index": 0,
+        "transform": "float"
+    },
+
+    "bizportal": {
+        "url_template": "https://www.bizportal.co.il/mutualfunds/quote/generalview/{fund_id}",
+        "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+        },
+        "verify": false,
+        "parser_type": "beautifulsoup",
+        "find_params": {
+            "tag": "div",
+            "attributes": {"class": "label"},
+            "string": "מחיר קנייה"
+        },
+        "next_sibling": {
+            "tag": "div",
+            "attributes": {"class": "num"}
+        },
+        "transform": "float"
+    },
+
+    "tase": {
+        "url_template": "https://maya.tase.co.il/fund/{fund_id}",
+        "parser_type": "javascript",
+        "find_params": {
+            "tag": "div",
+            "attributes": {"class": "buyPriceValue"}
+        },
+        "content_index": 0,
+        "transform": "float"
+    }
+}
