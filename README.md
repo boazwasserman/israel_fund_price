@@ -2,9 +2,9 @@
 A web service for obtaining Israeli fund and stock prices into your favorite investment tracking Google Sheet.
 
 ## How to use?
-To get the price of Israeli funds into your Google Sheets, use the command
+To get the price of Israeli funds into your Google Sheets, use the deployed webservice, and obtain the price from it using the following command
 ```
-=IMPORTDATA("https://israel_fund_price.render.com/?id=FUND_ID&source=SOURCE_NAME")
+=IMPORTDATA("https://...TBD.../?id=FUND_ID&source=SOURCE_NAME")
 ```
 replacing "FUND_ID" with the fund number/id on the Tel Aviv Stock Exchange, and SOURCE_NAME with one of currently supported sources:
 1. [sponser](https://www.sponser.co.il)
