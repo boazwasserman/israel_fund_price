@@ -24,4 +24,4 @@ def get_fund_price_api():
         return csv_data, 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
