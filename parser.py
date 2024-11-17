@@ -59,7 +59,7 @@ class FundPriceParser:
         if not element:
             raise ValueError(f"Price not found for {self.source_name}")
         
-        price_text = element.contents[self.config['content_index']].strip() if 'content_index' in self.config else element.get_text(strip=True)
+        price_text = element.contents[self.config['content_index']].strip().replace(',', '') if 'content_index' in self.config else element.get_text(strip=True).replace(',', '')
         
         return float(price_text) if self.config.get("transform") == "float" else price_text
 
@@ -70,7 +70,7 @@ class FundPriceParser:
         if not element:
             raise ValueError(f"Price not found for {self.source_name}")
 
-        price_text = element.contents[self.config['content_index']].strip() if 'content_index' in self.config else element.get_text(strip=True)
+        price_text = element.contents[self.config['content_index']].strip().replace(',', '') if 'content_index' in self.config else element.get_text(strip=True).replace(',', '')
 
         return float(price_text) if self.config.get("transform") == "float" else price_text
 
