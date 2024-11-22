@@ -1,6 +1,9 @@
 {
     "sponser": {
         "url_template": "https://finance.sponser.co.il/finance/table/?s={fund_id}",
+        "headers": {
+            "User-Agent": "Mozilla/5.0"
+        },
         "parser_type": "beautifulsoup",
         "find_params": {
             "tag": "span",
@@ -13,7 +16,7 @@
     "bizportal": {
         "url_template": "https://www.bizportal.co.il/mutualfunds/quote/generalview/{fund_id}",
         "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+            "User-Agent": "Mozilla/5.0"
         },
         "verify": false,
         "parser_type": "beautifulsoup",
