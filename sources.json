@@ -2,7 +2,8 @@
     "sponser": {
         "url_template": "https://finance.sponser.co.il/finance/table/?s={fund_id}",
         "headers": {
-            "User-Agent": "Mozilla/5.0"
+            "User-Agent": "curl/8.4.0",
+            "Accept": "*/*"
         },
         "parser_type": "beautifulsoup",
         "find_params": {
