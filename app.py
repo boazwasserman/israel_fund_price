@@ -1,20 +1,15 @@
 from flask import Flask, request, Response
 import parser
-import logging
-import os
 from pathlib import Path
+import utils
 
 RUN_WITH_NGROK = True
+PORT = 5000
 
 app = Flask(__name__)
 
 if RUN_WITH_NGROK:
-    import ngrok
-    if not os.path.isfile(Path(__file__).parent / '.ngrok_auth'):
-        raise Exception("To run with ngrok, a file named .ngrok_auth needs to exist and contain your ngrok authtoken.")
-    os.environ['NGROK_AUTHTOKEN'] = open(Path(__file__).parent / '.ngrok_auth', 'r').readline().strip()
-    logging.basicConfig(level=logging.INFO)
-    listener = ngrok.werkzeug_develop()
+    utils.wrap_with_ngrok(PORT)
 
 @app.route("/", methods=["GET"])
 def get_fund_price_api():
@@ -38,4 +33,4 @@ def get_fund_price_api():
         return csv_data, 500
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=PORT)
