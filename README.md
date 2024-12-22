@@ -10,6 +10,15 @@ To get the price of Israeli funds into your Google Sheets, the service needs to 
 
 ```
 =IMPORTDATA("https://YOUR-STATIC-DOMAIN/?id=FUND_ID&source=SOURCE_NAME")
+```  
+This will return a small CSV format response, in the following format, e.g:
+```
+fund_id	fund_price	source
+5135926	1094.08	bizportal
+```
+To obtain just the price in a single cell, wrap the above command with
+```
+INDEX(..., 2, 2)
 ```
 replacing "YOUR-STATIC-DOMAIN" with your ngrok static domain (or random one), "FUND_ID" with the fund number/id on the Tel Aviv Stock Exchange, and SOURCE_NAME with one of currently supported price source names:
 1. [sponser](https://www.sponser.co.il)
