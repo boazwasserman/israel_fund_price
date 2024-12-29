@@ -3,7 +3,7 @@ import parser
 from pathlib import Path
 import utils
 
-RUN_WITH_NGROK = True
+RUN_WITH_NGROK = False
 PORT = 5000
 
 app = Flask(__name__)
